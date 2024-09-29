@@ -1,101 +1,84 @@
 import Image from "next/image";
-
+import logo from '@/public/images/u5.png';
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="
+      bg-[rgba(4,4,82,0.9)] bg-[url('/images/bg.png')]
+      grid grid-rows-[20px_1fr_20px] items-center justify-items-center
+      min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
+    >
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full">
+        <div className="bg-white rounded-3xl shadow-md p-8 mx-auto min-w-[600px]">
+          <form className="flex flex-col gap-4">
+            <div className="flex items-center justify-center mt-[-120px]">
+              <Image src={logo} alt="PSIM.ai Logo" width={120} height={120} className="m-auto" />
+            </div>
+            <div className="relative flex flex-col items-center justify-center">
+                <h1 className="text-4xl font-bold text-[#1C237E]">Welcome Back</h1>
+                <b className="text-center text-[#19465B] pt-3">Sign In to PSIM.ai Site Assessments</b>
+            </div>
+            <div className="relative">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+              <input
+                type="email"
+                className="
+                  block appearance-none w-full px-3 py-2 shadow-[20px_20px_40px_rgba(0,0,0,0.07)]
+                  border border-gray-300 rounded-xl placeholder-gray-400
+                  focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                  placeholder="Email" required />
+            </div>
+            <div className="relative">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Password *</label>
+              <input
+                type="password"
+                className="
+                  block appearance-none w-full px-3 py-2 shadow-[20px_20px_40px_rgba(0,0,0,0.07)]
+                  border border-gray-300 rounded-xl
+                  placeholder-gray-400 focus:outline-none
+                  focus:ring-blue-500 focus:border-blue-500"
+                  placeholder="Password" required />
+            </div>
+            <button
+              type="submit"
+              className="
+                w-full flex justify-center py-3 px-4 mt-4
+                border border-transparent rounded-md
+                shadow-sm text-white
+                bg-[rgba(28,35,126,1)] hover:bg-[rgba(28,35,126,0.9)]
+                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[rgba(28,35,126,1)]
+                font-bold text-lg
+              ">
+                Sign in
+              </button>
+            <div className="flex justify-between">
+              <span className="text-[#1c237e] text-md font-bold">
+                Don&apos;t have an account?
+                <a href="#" className="text-md ml-[6px]">
+                  Sign up
+                </a>
+              </span>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+              <a href="#" className="text-md text-[#1c237e] font-bold">Forgot password?</a>
+            </div>
+            <div className="relative flex flex-col items-center justify-center mb-6">
+                <b className="text-center text-[#19465B] pt-3 bg-[#fff] px-2 z-10">or</b>
+                <span className="line w-full h-[1px] bg-[#999] mt-[-12px]"></span>
+            </div>
+            <div className="relative">
+              <select className="
+                block appearance-none w-full px-3 py-2 border border-gray-300
+                rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500
+                focus:border-blue-500" defaultValue="Select Single Sign-On provider"
+              >
+                <option disabled>Select Single Sign-On provider</option>
+                <option>Google</option>
+                <option>Microsoft</option>
+                <option>Facebook</option>
+              </select>
+            </div>
+          </form>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
