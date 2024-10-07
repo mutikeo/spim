@@ -1,6 +1,3 @@
-import Image from "next/image";
-import logo from '@/public/images/u5.png';
-
 import {
   DocumentMagnifyingGlassIcon,
   PresentationChartLineIcon,
@@ -9,32 +6,16 @@ import {
  } from '@heroicons/react/24/outline';
 
  import Button from "@/app/_components/Button";
+ import TopBanner from "@/app/_components/Banner";
+ import Header from "@/app/_components/Header";
 
 export default function Dashboard() {
   return (
     <div className="w-full bg-slate-100">
-      <div className="h-8 bg-[rgba(255,0,0,1)] text-white flex items-center justify-center text-sm">
+      <TopBanner>
         Optonal Alert Banner Here…Optonal Alert Banner Here…Optonal Alert Banner Here…Optonal Alert Banner Here
-      </div>
-      <div className="w-full bg-[rgba(28,35,126,0.9)]">
-        <div className="container mx-auto flex items-center h-full justify-between py-4">
-          <div className="pl-8">
-            <Image src={logo} alt="PSIM.ai Logo" width={80} height={80} className="m-auto" />
-          </div>
-          <div className="flex items-center pr-8 text-white">
-            Welcome,&nbsp;<b>[username]</b>
-            &nbsp;|&nbsp;
-            <a className="font-bold" href="#">Logout</a>
-          </div>
-        </div>
-      </div>
-      <div
-        className="
-          h-64 bg-cover bg-center bg-no-repeat
-          bg-[rgba(4,4,82,0.9)] bg-[url('/images/bg.png')]
-          flex items-center justify-center">
-        <h1 className="text-4xl text-white text-center font-bold">Dashboard</h1>
-      </div>
+      </TopBanner>
+      <Header title='Dashboard' />
       <div className="
         container mx-auto bg-white rounded-2xl overflow-hidden
         shadow-[20px_20px_40px_rgba(0,0,0,0.07)] mt-[-64px]
