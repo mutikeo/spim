@@ -6,7 +6,6 @@ import {
   Option,
   Select,
   Dialog,
-  Textarea,
   IconButton,
   Typography,
   DialogBody,
@@ -16,18 +15,24 @@ import {
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 import Button from '@/app/_components/Button';
+import Multiselect from "@/app/_components/MultipleSelect";
 
 export default function AddModal({ open, handleOpen }: { open: boolean, handleOpen: () => void }) {
-
+  const facilityType = ['Hospital', 'Medical Clinic', 'School', 'University', 'Office Building', 'Etc'];
+  const equipmentAssessmentType = [
+    'Physical Security Equiptment',
+    'Cybersecurity Infrastructure',
+    'Occupational Safety Equiptment',
+    'Fire Safety Systems',
+    'Emergency Response Equiptment',
+    'Etc'
+  ];
   return (
     <>
       <Dialog size="sm" open={open} handler={handleOpen} className="p-4" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         <DialogHeader className="relative m-0 block" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           <Typography variant="h4" color="blue-gray" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-            Manage Item
-          </Typography>
-          <Typography className="mt-1 font-normal text-gray-600" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-            Keep your records up-to-date and organized.
+            Add New Assessment
           </Typography>
           <IconButton
             size="sm"
@@ -37,57 +42,122 @@ export default function AddModal({ open, handleOpen }: { open: boolean, handleOp
             <XMarkIcon className="h-4 w-4 stroke-2" />
           </IconButton>
         </DialogHeader>
-        <DialogBody className="space-y-4 pb-6" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+        <DialogBody className="space-y-2 pb-6" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           <div>
             <Typography
               variant="small"
               color="blue-gray"
-              className="mb-2 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}            >
-              Name
+              className="mb-1 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+              Facility Type (select all that apply):
+            </Typography>
+            <Multiselect options={facilityType} />
+          </div>
+          <div>
+            <Typography
+              variant="small"
+              color="blue-gray"
+              className="mb-1 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+              Equipment Assessment Type (select all that apply):
+            </Typography>
+            <Multiselect options={equipmentAssessmentType} />
+          </div>
+          <div>
+            <Typography
+              variant="small"
+              color="blue-gray"
+              className="mb-1 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+              Facility Diagram/Layout:
+            </Typography>
+            <Select
+              color="gray"
+              size="lg"
+              className="!min-w-full"
+              placeholder="Facility Diagram/Layout"
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            >
+              <Option value="uploadExisting">Upload Existing Diagram</Option>
+              <Option value="CreateNew">Create New Diagram</Option>
+            </Select>
+          </div>
+          <div>
+            <Typography
+              variant="small"
+              color="blue-gray"
+              className="mb-1 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}  >
+              Project ID/Reference #
             </Typography>
             <Input
               color="gray"
               size="lg"
-              placeholder="eg. White Shoes"
-              name="name"
+              placeholder="Project ID... #"
+              name="weight"
               className="placeholder:opacity-100 focus:!border-t-gray-900"
               containerProps={{
                 className: "!min-w-full",
               }}
               labelProps={{
                 className: "hidden",
-              }} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}            />
+              }} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}              />
+          </div>
+          <Typography
+            variant="h6"
+            color="blue-gray"
+            className="mb-2 text-left font-bold" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            Location Information
+          </Typography>
+          <div>
+            <Typography
+              variant="small"
+              color="blue-gray"
+              className="mb-1 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}  >
+              Facility Name *
+            </Typography>
+            <Input
+              color="gray"
+              size="lg"
+              placeholder="Facility Name.."
+              name="weight"
+              className="placeholder:opacity-100 focus:!border-t-gray-900"
+              containerProps={{
+                className: "!min-w-full",
+              }}
+              labelProps={{
+                className: "hidden",
+              }} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}              />
           </div>
           <div>
             <Typography
               variant="small"
               color="blue-gray"
-              className="mb-2 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}            >
-              Category
+              className="mb-1 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}  >
+              Address *
             </Typography>
-            <Select
-              className="!w-full !border-[1.5px] !border-blue-gray-200/90 !border-t-blue-gray-200/90 bg-white text-gray-800 ring-4 ring-transparent placeholder:text-gray-600 focus:!border-primary focus:!border-t-blue-gray-900 group-hover:!border-primary"
-              placeholder="1"
+            <Input
+              color="gray"
+              size="lg"
+              placeholder="Address.."
+              name="weight"
+              className="placeholder:opacity-100 focus:!border-t-gray-900"
+              containerProps={{
+                className: "!min-w-full",
+              }}
               labelProps={{
                 className: "hidden",
-              }} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}            >
-              <Option>Clothing</Option>
-              <Option>Fashion</Option>
-              <Option>Watches</Option>
-            </Select>
+              }} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}              />
           </div>
           <div className="flex gap-4">
             <div className="w-full">
               <Typography
                 variant="small"
                 color="blue-gray"
-                className="mb-2 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}              >
-                Weight
+                className="mb-1 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}  >
+                City *
               </Typography>
               <Input
                 color="gray"
                 size="lg"
-                placeholder="eg. <8.8oz | 250g"
+                placeholder="12345.."
                 name="weight"
                 className="placeholder:opacity-100 focus:!border-t-gray-900"
                 containerProps={{
@@ -101,14 +171,35 @@ export default function AddModal({ open, handleOpen }: { open: boolean, handleOp
               <Typography
                 variant="small"
                 color="blue-gray"
-                className="mb-2 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}              >
-                Size
+                className="mb-1 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}  >
+                State *
+              </Typography>
+              <Select
+                color="gray"
+                size="lg"
+                className="!min-w-full"
+                placeholder="State"
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              >
+                <Option value="newYork">New York</Option>
+                <Option value="iowa">Iowa</Option>
+              </Select>
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <div className="w-full">
+              <Typography
+                variant="small"
+                color="blue-gray"
+                className="mb-1 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}  >
+                Zip *
               </Typography>
               <Input
                 color="gray"
                 size="lg"
-                placeholder="eg. US 8"
-                name="size"
+                placeholder="Zipcode..."
+                name="weight"
                 className="placeholder:opacity-100 focus:!border-t-gray-900"
                 containerProps={{
                   className: "!min-w-full",
@@ -117,25 +208,30 @@ export default function AddModal({ open, handleOpen }: { open: boolean, handleOp
                   className: "hidden",
                 }} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}              />
             </div>
-          </div>
-          <div>
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="mb-2 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}            >
-              Description (Optional)
-            </Typography>
-            <Textarea
-              rows={7}
-              placeholder="eg. This is a white shoes with a comfortable sole."
-              className="!w-full !border-[1.5px] !border-blue-gray-200/90 !border-t-blue-gray-200/90 bg-white text-gray-600 ring-4 ring-transparent focus:!border-primary focus:!border-t-blue-gray-900 group-hover:!border-primary"
-              labelProps={{
-                className: "hidden",
-              }} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}            />
+            <div className="w-full">
+              <Typography
+                variant="small"
+                color="blue-gray"
+                className="mb-1 text-left font-medium" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}  >
+                Country *
+              </Typography>
+              <Select
+                color="gray"
+                size="lg"
+                className="!min-w-full"
+                placeholder="Country"
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              >
+                <Option value="America">America</Option>
+                <Option value="TBD">..TBD</Option>
+              </Select>
+            </div>
           </div>
         </DialogBody>
-        <DialogFooter placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-          <Button content="Add Item" />
+        <DialogFooter className="flex justify-between" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+          <Button content="Cancel" />
+          <Button content="Save" type="filled" />
         </DialogFooter>
       </Dialog>
     </>

@@ -1,5 +1,8 @@
 import Image from "next/image";
 import logo from '@/public/images/u5.png';
+
+import { colors } from '@/app/_constants';
+
 export default function Home() {
   return (
     <div className="
@@ -14,8 +17,8 @@ export default function Home() {
               <Image src={logo} alt="PSIM.ai Logo" width={120} height={120} className="m-auto" />
             </div>
             <div className="relative flex flex-col items-center justify-center">
-                <h1 className="text-4xl font-bold text-[#1C237E]">Welcome Back</h1>
-                <b className="text-center text-[#19465B] pt-3">Sign In to PSIM.ai Site Assessments</b>
+                <h1 className={`text-4xl font-bold text-[${colors.text.primary}]`}>Welcome Back</h1>
+                <b className={`text-center text-[${colors.text.secondary}] pt-3`}>Sign In to PSIM.ai Site Assessments</b>
             </div>
             <div className="relative">
               <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
@@ -51,17 +54,17 @@ export default function Home() {
                 Sign in
               </button>
             <div className="flex justify-between">
-              <span className="text-[#1c237e] text-md font-bold">
+              <span className={`text-[${colors.text.primary}] text-md font-bold`}>
                 Don&apos;t have an account?
                 <a href="#" className="text-md ml-[6px]">
                   Sign up
                 </a>
               </span>
 
-              <a href="#" className="text-md text-[#1c237e] font-bold">Forgot password?</a>
+              <a href="#" className={`text-md text-[${colors.text.primary}] font-bold`}>Forgot password?</a>
             </div>
             <div className="relative flex flex-col items-center justify-center mb-6">
-                <b className="text-center text-[#19465B] pt-3 bg-[#fff] px-2 z-10">or</b>
+                <b className={`text-center text-[${colors.text.secondary}] pt-3 bg-[#fff] px-2 z-10`}>or</b>
                 <span className="line w-full h-[1px] bg-[#999] mt-[-12px]"></span>
             </div>
             <div className="relative">
