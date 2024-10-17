@@ -1,3 +1,6 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
 import {
   DocumentMagnifyingGlassIcon,
   PresentationChartLineIcon,
@@ -10,6 +13,7 @@ import {
  import Header from "@/app/_components/Header";
 
 export default function Dashboard() {
+  const router = useRouter();
   return (
     <div className="w-full bg-slate-100">
       <TopBanner>
@@ -55,7 +59,7 @@ export default function Dashboard() {
         </div>
       </div>
       <div className="
-        container mx-auto rounded-2xl mt-[64px] text-black
+        container mx-auto rounded-2xl text-black
         grid grid-cols-4 gap-10 mt-8">
         <div className="flex flex-col bg-white p-8 rounded-2xl shadow-2xl">
           <div className="flex items-center justify-center mb-4">
@@ -63,7 +67,7 @@ export default function Dashboard() {
           </div>
           <h3 className="text-2xl font-bold">Site Assessment</h3>
           <p className="my-6">Interactive site layout and risk assessment tools.</p>
-          <Button content="Assess Sites" />
+          <Button onClick={() => router.push('/site-assessment')} content="Assess Sites" />
         </div>
         <div className="flex flex-col bg-white p-8 rounded-2xl shadow-2xl">
           <div className="flex items-center justify-center mb-4">

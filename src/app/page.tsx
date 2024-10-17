@@ -1,9 +1,13 @@
-import Image from "next/image";
+'use client';
+
+import Image from 'next/image';
 import logo from '@/public/images/u5.png';
+import { useRouter } from 'next/navigation';
 
 import { colors } from '@/app/_constants';
 
 export default function Home() {
+  const router = useRouter();
   return (
     <div className="
       bg-[rgba(4,4,82,0.9)] bg-[url('/images/bg.png')]
@@ -17,8 +21,8 @@ export default function Home() {
               <Image src={logo} alt="PSIM.ai Logo" width={120} height={120} className="m-auto" />
             </div>
             <div className="relative flex flex-col items-center justify-center">
-                <h1 className={`text-4xl font-bold text-[${colors.text.primary}]`}>Welcome Back</h1>
-                <b className={`text-center text-[${colors.text.secondary}] pt-3`}>Sign In to PSIM.ai Site Assessments</b>
+                <h1 className={`text-4xl font-bold ${colors.text.primary}`}>Welcome Back</h1>
+                <b className={`text-center ${colors.text.secondary} pt-3`}>Sign In to PSIM.ai Site Assessments</b>
             </div>
             <div className="relative">
               <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
@@ -26,7 +30,7 @@ export default function Home() {
                 type="email"
                 className="
                   block appearance-none w-full px-3 py-2 shadow-[20px_20px_40px_rgba(0,0,0,0.07)]
-                  border border-gray-300 rounded-xl placeholder-gray-400
+                  border border-gray-300 rounded-xl placeholder-gray-400 text-[#18191a]
                   focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Email" required />
             </div>
@@ -36,12 +40,13 @@ export default function Home() {
                 type="password"
                 className="
                   block appearance-none w-full px-3 py-2 shadow-[20px_20px_40px_rgba(0,0,0,0.07)]
-                  border border-gray-300 rounded-xl
+                  border border-gray-300 rounded-xl text-[#18191a]
                   placeholder-gray-400 focus:outline-none
                   focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Password" required />
             </div>
             <button
+              onClick={() => router.push('/dashboard')}
               type="submit"
               className="
                 w-full flex justify-center py-3 px-4 mt-4
@@ -54,14 +59,14 @@ export default function Home() {
                 Sign in
               </button>
             <div className="flex justify-between">
-              <span className={`text-[${colors.text.primary}] text-md font-bold`}>
+              <span className={`${colors.text.primary} text-md font-bold`}>
                 Don&apos;t have an account?
                 <a href="#" className="text-md ml-[6px]">
                   Sign up
                 </a>
               </span>
 
-              <a href="#" className={`text-md text-[${colors.text.primary}] font-bold`}>Forgot password?</a>
+              <a href="#" className={`text-md ${colors.text.primary} font-bold`}>Forgot password?</a>
             </div>
             <div className="relative flex flex-col items-center justify-center mb-6">
                 <b className={`text-center text-[${colors.text.secondary}] pt-3 bg-[#fff] px-2 z-10`}>or</b>

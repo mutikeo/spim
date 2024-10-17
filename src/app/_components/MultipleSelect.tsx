@@ -27,7 +27,7 @@ function Dropdown({
               }
             }}
           >
-            <div className={`flex w-full items-center p-2 pl-2 border-transparent border-l-2 relative hover:border-[${colors.background.primary}]`}>
+            <div className={`flex w-full items-center p-2 pl-2 border-transparent border-l-2 relative ${colors.border.blueHover}`}>
               <div className="mx-2 leading-6 flex items-center">
                 <input
                   type="checkbox"
@@ -79,7 +79,7 @@ const Multiselect = ({
           <div className="w-full relative">
             <div className="flex flex-col items-center relative">
               <div className="w-full ">
-                <div className="p-1 flex border !border-[1.5px] !border-blue-gray-200/90 !border-t-blue-gray-200/90 bg-white rounded ">
+                <div className="p-1 flex !border-[1.5px] !border-blue-gray-200/90 !border-t-blue-gray-200/90 bg-white rounded ">
                   <div className="flex flex-auto flex-wrap">
                     {selectedItems.map((tag, index) => {
                       return (

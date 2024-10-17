@@ -1,12 +1,25 @@
 'use client'
 
-import React, { useState } from "react";
-import Button from "@/app/_components/Button";
-import Header from "@/app/_components/Header";
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
+
+import Button from '@/app/_components/Button';
+import Header from '@/app/_components/Header';
 import Table from '@/app/_components/Table';
 
 import AddModal from './AddModal';
 
+const ButtonNavigation = ({ id }: { id: string | number }) => {
+  const router = useRouter();
+  return (
+    <div className="flex justify-end">
+      <Button
+        content="View Details"
+        onClick={() => router.push(`/site-assessment/${id}`)}
+      />
+    </div>
+  );
+}
 // TODO: dummy data
 const TABLE_HEAD = [
   "FACILITY NAME#",
@@ -28,7 +41,7 @@ const TABLE_ROWS = [
     overallScore: "92%",
     riskLevel: "Low",
     assignedTo: "John Doe",
-    action: <Button content="View Details" />,
+    action: <ButtonNavigation id={1} />,
   },
   {
     facilityName: "North Site",
@@ -38,7 +51,7 @@ const TABLE_ROWS = [
     overallScore: "78%",
     riskLevel: "Medium",
     assignedTo: "Jane Doe",
-    action: <Button content="View Details" />,
+    action: <ButtonNavigation id={5} />,
   },
   {
     facilityName: "South Site",
@@ -48,7 +61,7 @@ const TABLE_ROWS = [
     overallScore: "95%",
     riskLevel: "Low",
     assignedTo: "Bob Smith",
-    action: <Button content="View Details" />,
+    action: <ButtonNavigation id={2} />,
   },
   {
     facilityName: "East Site",
@@ -58,7 +71,7 @@ const TABLE_ROWS = [
     overallScore: "85%",
     riskLevel: "Medium",
     assignedTo: "Alice Johnson",
-    action: <Button content="View Details" />,
+    action: <ButtonNavigation id={3} />,
   },
   {
     facilityName: "West Site",
@@ -68,7 +81,7 @@ const TABLE_ROWS = [
     overallScore: "98%",
     riskLevel: "Low",
     assignedTo: "Mike Davis",
-    action: <Button content="View Details" />,
+    action: <ButtonNavigation id={4} />,
   },
 ];
 
