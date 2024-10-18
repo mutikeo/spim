@@ -9,7 +9,6 @@ import AddEquipmentModal from './AddEquipmentModal';
 
 export default function SiteAssessmentDetail({ params }: { params: { id: string } }) {
   const { id } = params;
-
   const [open, setOpen] = useState(false);
 
   const handleOpenModal = () => setOpen(!open);
