@@ -1,11 +1,14 @@
 "use client";
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 import Header from '@/app/_components/Header';
 import Button from '@/app/_components/Button';
 
 import AddEquipmentModal from './AddEquipmentModal';
+
+import assessment from '@/public/images/assessment.jpeg';
 
 export default function SiteAssessmentDetail({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -93,6 +96,15 @@ export default function SiteAssessmentDetail({ params }: { params: { id: string 
           shadow-[20px_20px_40px_rgba(0,0,0,0.07)] mt-8
           flex flex-col justify-center px-8 py-4">
             <p className="px-4 py-32 text-center text-xl">No Equipment Assessment added. Please use the button to add one.</p>
+        </div>
+
+        <div className="container mx-auto mt-8 mb-8">
+          <Image
+            src={assessment}
+            alt="Assessment"
+            layout="responsive"
+            objectFit="contain"
+          />
         </div>
       </div>
       <AddEquipmentModal open={open} handleOpen={handleOpenModal}  />
