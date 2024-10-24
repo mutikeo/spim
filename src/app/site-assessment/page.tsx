@@ -93,7 +93,11 @@ export default function SiteAssessment() {
   return (
     <>
       <div className="w-full bg-slate-100 text-black">
-        <Header title='Facility Site Assessment' />
+        <Header
+          title='Facility Site Assessment'
+          backTitle="Dashboard"
+          backUrl="/dashboard"
+        />
         <div className="
           container mx-auto bg-white rounded-2xl overflow-hidden
           shadow-[20px_20px_40px_rgba(0,0,0,0.07)] mt-[-64px]

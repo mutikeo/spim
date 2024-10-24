@@ -3,9 +3,10 @@ interface ButtonProps {
   content: string;
   size?: string;
   onClick?: () => void;
+  extraClassName?: string;
 }
 
-export default function Button({type = 'outline', content, size = 'sm', ...props}:ButtonProps) {
+export default function Button({type = 'outline', content, size = 'sm', extraClassName, ...props}:ButtonProps) {
   let className = size === 'lg' ? 'px-8 py-2 text-lg ' : 'px-8 py-1 text-sm ';
   if (type === 'outline') {
     className += `text-[#1c237e] bg-white border border-[#1c237e]
@@ -21,7 +22,7 @@ export default function Button({type = 'outline', content, size = 'sm', ...props
   return (
     <button
       type="button"
-      className={className}
+      className={`${className} ${extraClassName}`}
       {...props}
     >
       {content}

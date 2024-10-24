@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@amcharts/amcharts5": "^5.10.7",
     "@heroicons/react": "^2.1.5",
     "@material-tailwind/react": "^2.1.10",
     "@yudiel/react-qr-scanner": "^2.0.8",

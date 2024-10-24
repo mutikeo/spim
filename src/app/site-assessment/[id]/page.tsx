@@ -16,7 +16,11 @@ export default function SiteAssessmentDetail({ params }: { params: { id: string 
   return (
     <>
       <div className="w-full bg-slate-100">
-        <Header title='Site Assessment Details' />
+        <Header
+          title='Site Assessment Details'
+          backTitle="Site Assessment"
+          backUrl="/site-assessment"
+        />
         <div className="
           container mx-auto bg-white rounded-2xl overflow-hidden
           shadow-[20px_20px_40px_rgba(0,0,0,0.07)] mt-[-64px]
