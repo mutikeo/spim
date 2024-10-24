@@ -5,10 +5,10 @@ import Image from 'next/image';
 
 import Header from '@/app/_components/Header';
 import Button from '@/app/_components/Button';
+import assessment from '@/public/images/assessment.jpeg';
 
 import AddEquipmentModal from './AddEquipmentModal';
 
-import assessment from '@/public/images/assessment.jpeg';
 
 export default function SiteAssessmentDetail({ params }: { params: { id: string } }) {
   const { id } = params;
